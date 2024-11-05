@@ -1,3 +1,4 @@
+
 def printSolution(board, n):
     for i in range(n):
         for j in range(n):
@@ -38,24 +39,20 @@ def isSafe(board, row, col, n):
 
     return True
 
-
 def solve(board, n, col):
     if col >= n:
         printSolution(board, n)
         return
-
     for row in range(n):
         if isSafe(board, row, col, n):
             board[row][col] = 1
             solve(board, n, col + 1)
             board[row][col] = 0
 
-
 if __name__ == "__main__":
     n = int(input("Enter number of queens: "))
     board = []
     for i in range(n):
-        row = [0] * n  # Create a row of size 'n' filled with 0s
+        row = [0] * n  
         board.append(row)  # Append this row to the board
-
     solve(board, n, 0)
